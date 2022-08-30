@@ -586,6 +586,27 @@ def run_tests(pyb, tests, args, result_dir, num_threads=1):
             skip_tests.add(
                 "extmod/utime_time_ns.py"
             )  # RA fsp rtc function doesn't support nano sec info
+        elif args.target == "nucleo-l152re":
+            skip_tests.add("pyb/adcall.py")  # Change adc ports and mask
+            skip_tests.add("pyb/extint.py")  # Change port's name
+            skip_tests.add("pyb/pyb1.py")  # NUCLEO-L152RE does not have CDC
+            skip_tests.add("pyb/pin.py")  # Change port's name
+            skip_tests.add("pyb/uart.py")  # Except USART2
+            skip_tests.add("pyb/rtc.py")  # Change sleep duration
+            skip_tests.add("pyb/spi.py")  # Change SPI port
+            skip_tests.add("pyb/timer.py")  # TIM2 of NUCLEO-L152RE is 16bit timer
+            skip_tests.add("pyb/timer_callback.py")  # NUCLEO-L152RE does not have TIM1
+            skip_tests.add("extmod/uselect_poll_udp.py")  # NUCLEO-L152RE does not have NIC
+            skip_tests.add("extmod/usocket_udp_nonblock.py")  # NUCLEO-L152RE does not have NIC
+            # NUCLEO-L152RE does not have hardfp
+            skip_tests.add("inlineasm/asmfpaddsub.py")
+            skip_tests.add("inlineasm/asmfpmuldiv.py")
+            skip_tests.add("inlineasm/asmfpcmp.py")
+            skip_tests.add("inlineasm/asmfpldrstr.py")
+            skip_tests.add("inlineasm/asmfpsqrt.py")
+            # NUCLEO-L152 has small RAM (80KB)
+            skip_tests.add("stress/recursive_iternext.py")
+            skip_tests.add("extmod/uzlib_decompio.py")
         elif args.target == "qemu-arm":
             skip_tests.add("misc/print_exception.py")  # requires sys stdfiles
 
@@ -916,6 +937,7 @@ the last matching regex is used:
         "minimal",
         "nrf",
         "renesas-ra",
+        "nucleo-l152re",
         "rp2",
     )
     if args.target in LOCAL_TARGETS or args.list_tests:
@@ -953,6 +975,8 @@ the last matching regex is used:
             if args.target == "pyboard":
                 # run pyboard tests
                 test_dirs += ("float", "stress", "pyb", "inlineasm")
+            if args.target == "nucleo-l152re":
+                test_dirs += ("float", "stress", "pyb", "nucleo-l152re", "inlineasm")
             elif args.target in ("renesas-ra"):
                 test_dirs += ("float", "inlineasm", "renesas-ra")
             elif args.target == "rp2":

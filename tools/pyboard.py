@@ -462,7 +462,8 @@ class Pyboard:
         return ret
 
     def exec_(self, command, data_consumer=None):
-        ret, ret_err = self.exec_raw(command, data_consumer=data_consumer)
+        # Some test case takes more than 10 sec
+        ret, ret_err = self.exec_raw(command, timeout=30, data_consumer=data_consumer)
         if ret_err:
             raise PyboardError("exception", ret, ret_err)
         return ret
