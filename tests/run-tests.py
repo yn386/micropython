@@ -607,6 +607,7 @@ def run_tests(pyb, tests, args, result_dir, num_threads=1):
             # NUCLEO-L152 has small RAM (80KB)
             skip_tests.add("stress/recursive_iternext.py")
             skip_tests.add("extmod/uzlib_decompio.py")
+            skip_tests.add("extmod/vfs_fat_ilistdir_del.py")
         elif args.target == "qemu-arm":
             skip_tests.add("misc/print_exception.py")  # requires sys stdfiles
 
