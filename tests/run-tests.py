@@ -183,6 +183,16 @@ platform_tests_to_skip = {
         "thread/stress_heap.py",
         "thread/thread_lock3.py",
     ),
+    "weact-h723vg": (
+            "ports/stm32/adc.py",
+            "ports/stm32/adcall.py",
+            "ports/stm32/can.py",
+            "ports/stm32/extint.py",
+            "ports/stm32/pin.py",
+            "ports/stm32/uart.py",
+            "ports/stm32/rtc.py",
+            "ports/stm32/spi.py",
+    )
 }
 
 
@@ -1345,6 +1355,8 @@ the last matching regex is used:
                     "float",
                     "ports/qemu",
                 )
+            elif args.platform == "weact-h723vg":
+                test_dirs += ("float", "stress", "ports/stm32", "inlineasm", "ports/stm32/weact-h723vg")
             elif args.platform == "webassembly":
                 test_dirs += ("float", "ports/webassembly")
         else:

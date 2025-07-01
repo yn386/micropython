@@ -1,5 +1,6 @@
 #define MICROPY_HW_BOARD_NAME               "WeAct Studio Core"
 #define MICROPY_HW_MCU_NAME                 "STM32H723VG"
+#define MICROPY_PY_SYS_PLATFORM             "weact-h723vg"
 
 #define MICROPY_HW_ENABLE_RTC               (1)
 #define MICROPY_HW_ENABLE_SERVO             (1)

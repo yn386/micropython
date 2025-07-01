@@ -32,6 +32,9 @@ elif "esp32" in sys.platform:
 elif "esp8266" in sys.platform:
     MAX_DELTA_MS = 50  # port requires much looser timing requirements
     spi_instances = ((1, None, None, None),)  # explicit pin choice not allowed
+elif "weact-h723vg" in sys.platform:
+    # SPI(1) is reserved for spi flash
+    spi_instances = ((2, None, None, None),)
 else:
     print("Please add support for this test on this platform.")
     raise SystemExit
