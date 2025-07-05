@@ -1,5 +1,6 @@
 #define MICROPY_HW_BOARD_NAME               "NUCLEO_H7A3ZI_Q"
 #define MICROPY_HW_MCU_NAME                 "STM32H7A3ZIT6Q"
+#define MICROPY_PY_SYS_PLATFORM             "nucleo-h7a3zi-q"
 
 #define MICROPY_HW_ENABLE_RTC               (1)
 #define MICROPY_HW_ENABLE_SERVO             (1)

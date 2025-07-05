@@ -16,7 +16,7 @@ MAX_DELTA_MS = 8
 if "alif" in sys.platform:
     MAX_DELTA_MS = 20
     spi_instances = ((0, None, None, None),)
-elif "pyboard" in sys.platform:
+elif "pyboard" in sys.platform or "nucleo-h7a3zi-q" in sys.platform:
     spi_instances = (
         (1, None, None, None),  # "explicit choice of sck/mosi/miso is not implemented"
         (2, None, None, None),

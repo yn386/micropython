@@ -183,6 +183,15 @@ platform_tests_to_skip = {
         "thread/stress_heap.py",
         "thread/thread_lock3.py",
     ),
+    "nucleo-h7a3zi-q": (
+        "ports/stm32/adc.py",
+        "ports/stm32/adcall.py",
+        "ports/stm32/can.py",
+        "ports/stm32/extint.py",
+        "ports/stm32/pin.py",
+        "ports/stm32/uart.py",
+        "ports/stm32/rtc.py",
+    )
 }
 
 
@@ -1347,6 +1356,8 @@ the last matching regex is used:
                 )
             elif args.platform == "webassembly":
                 test_dirs += ("float", "ports/webassembly")
+            elif args.platform == "nucleo-h7a3zi-q":
+                test_dirs += ("float", "stress", "ports/stm32", "inlineasm", "ports/stm32/nucleo-h7a3zi-q")
         else:
             # run tests from these directories
             test_dirs = args.test_dirs

@@ -1,0 +1,32 @@
+Pin(Pin.cpu.C4, mode=Pin.ANALOG)
+Pin(Pin.cpu.B1, mode=Pin.ANALOG)
+Pin(Pin.cpu.F14, mode=Pin.ANALOG)
+Pin(Pin.cpu.A7, mode=Pin.ANALOG)
+Pin(Pin.cpu.C4, mode=Pin.ANALOG)
+Pin(Pin.cpu.B1, mode=Pin.ANALOG)
+Pin(Pin.cpu.F14, mode=Pin.IN)
+Pin(Pin.cpu.A7, mode=Pin.IN)
+<ADCAll>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+<class 'int'>
+True
+True
+True
+True
